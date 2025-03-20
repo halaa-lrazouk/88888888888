@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الصفحة الرئيسية</title>
+    <style>
+        /* إعدادات عامة */
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background: linear-gradient(to bottom, #afb0b3, #cfdef3);
+            color: #333;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* حركة ظهور الصفحة */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* الحاوية الرئيسية */
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 1rem;
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            background: linear-gradient(to bottom, #e6f3f3, #f3f3f3);
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            text-align: center;
+            width: 300px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(65, 63, 63, 0.3);
+        }
+
+        .section img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover img {
+            transform: scale(1.1);
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            color: #333;
+        }
+
+        .section p {
+            padding: 0 1rem;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .section button {
+            margin: 1rem 0;
+            background: linear-gradient(to right, #333, #333);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.8rem;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .section button:hover {
+            background: linear-gradient(to right, #333, #333);
+            transform: scale(1.1);
+        }
+
+        /* تأثير الزخارف حول كل قسم */
+        .section::before, .section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+        }
+
+        .section::before {
+            top: -30px;
+            left: -30px;
+        }
+
+        .section::after {
+            bottom: -30px;
+            right: -30px;
+        }
+
+        .section:hover::before {
+            transform: translate(-10px, -10px) scale(1.2);
+        }
+
+        .section:hover::after {
+            transform: translate(10px, 10px) scale(1.2);
+        }
+
+        /* أزرار الأسهم */
+        .arrow-button {
+            position: absolute;
+            bottom: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .arrow-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="arrow-button arrow-left" onclick="scrollLeft()">&#8249;</button>
+    <button class="arrow-button arrow-right" onclick="scrollRight()">&#8250;</button>
+
+    <div class="scroll-container" id="sections">
+        <!-- الأقسام -->
+        <div class="section">
+            <img src="asas.jpg" alt="غرف النوم">
+            <h2>غرف النوم</h2>
+            <p>اختيارات فاخرة من غرف النوم الأنيقة والعملية.</p>
+            <button onclick="location.href='bedroom.html'">استعراض المنتجات</button>
+        </div>
+        <div class="section">
+            <img src="asas.jpg" alt="غرف أوروبية">
+            <h2>غرف أوروبية</h2>
+            <p>تصاميم أوروبية تجمع بين الفخامة والراحة.</p>
+            <button onclick="location.href='european.html'">استعراض المنتجات</button>
+        </div>
+        <div class="section">
+            <img src="asas.jpg" alt="غرف عربية">
+            <h2>غرف عربية</h2>
+            <p>غرف عربية مستوحاة من التراث بتصاميم عصرية.</p>
+            <button onclick="location.href='arabic.html'">استعراض المنتجات</button>
+        </div>
+        <div class="section">
+            <img src="asas.jpg" alt="غرف مستعملة">
+            <h2>غرف مستعملة</h2>
+            <p>غرف بأسعار تنافسية وجودة متميزة.</p>
+            <button onclick="location.href='used_rooms.html'">استعراض المنتجات</button>
+        </div>
+        <div class="section">
+            <img src="asas.jpg" alt="طاولات طعام">
+            <h2>طاولات طعام</h2>
+            <p>مجموعة واسعة من طاولات الطعام بأحدث التصاميم.</p>
+            <button onclick="location.href='dining_tables.html'">استعراض المنتجات</button>
+        </div>
+        <div class="section">
+            <img src="asas.jpg" alt="مكاتب">
+            <h2>مكاتب</h2>
+            <p>تصاميم مكاتب عملية وأنيقة تلبي جميع الاحتياجات.</p>
+            <button onclick="location.href='desks.html'">استعراض المنتجات</button>
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('sections');
+
+        function scrollLeft() {
+            container.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+
+        function scrollRight() {
+            container.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
