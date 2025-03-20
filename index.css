@@ -24,82 +24,85 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px; /* تعديل الحشوة لتحسين التباعد */
+  padding: 10px 15px;
   background: linear-gradient(to right, #F48FB1, #F06292); /* تدرج زهري */
   color: #FFF1F7;
   position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  height: 70px; /* زيادة الارتفاع قليلاً */
+  height: 60px;
   flex-wrap: nowrap; /* منع التفاف العناصر */
 }
 
-/* حركة شعار "ركن الشوكلا" */
 .top-bar .logo {
-  font-size: 20px; /* تكبير حجم النص */
+  font-size: 18px;
   font-weight: bold;
   color: #FFD1DC;
-  animation: bounce 2s infinite; /* حركة ارتداد */
-  margin: 0;
+  animation: float 2s infinite; /* حركة طفيفة للشعار */
+  margin-bottom: 0; /* إزالة المسافة السفلية */
 }
 
-/* تأثير الارتداد */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* تنسيق الروابط */
 .top-bar nav {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 14px;
-  flex-wrap: nowrap; /* عدم الالتفاف */
+  font-size: 12px;
+  flex-wrap: nowrap; /* منع التفاف الروابط */
 }
 
 .top-bar nav a {
   text-decoration: none;
   color: #FFF1F7;
   font-weight: bold;
-  padding: 6px 12px; /* زيادة الحشوة */
+  padding: 6px 10px; /* تحسين المسافات */
   border-radius: 10px;
-  background-color: rgba(255, 182, 193, 0.3); /* لون خلفية لطيف */
+  background-color: rgba(255, 182, 193, 0.3); /* خلفية شفافة لطيفة */
   transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s;
 }
 
 .top-bar nav a:hover {
-  background-color: #FFB6C1; /* لون زهري عند التمرير */
-  color: #4E342E; /* لون النص عند التمرير */
-  transform: scale(1.1); /* تكبير بسيط */
+  background-color: #FFB6C1; /* لون مميز عند التمرير */
+  color: #4E342E;
+  transform: scale(1.1);
 }
 
-/* دعم الجوال: عرض الروابط بشكل عمودي */
+/* دعم الجوال لضمان نفس الشكل */
 @media (max-width: 768px) {
   .top-bar {
-    flex-direction: column; /* ترتيب عمودي على الجوال */
-    align-items: flex-start;
-    padding: 10px; /* تعديل الحشوة */
+    flex-wrap: nowrap; /* الحفاظ على العناصر في صف واحد */
+    justify-content: space-between; /* محاذاة الشعار والروابط */
   }
 
   .top-bar nav {
-    flex-direction: column; /* الروابط تظهر عمودياً */
-    align-items: flex-start;
+    justify-content: flex-end; /* الروابط في نهاية الشريط */
     gap: 8px; /* تقليل المسافات بين الروابط */
   }
 
-  .top-bar nav a {
-    font-size: 14px; /* ضبط حجم النصوص */
-    padding: 8px 10px; /* تعديل الحشوة للروابط */
+  .top-bar .logo {
+    font-size: 16px; /* تصغير الشعار قليلاً */
   }
 
-  .top-bar .logo {
-    margin-bottom: 10px; /* إضافة مسافة أسفل الشعار */
+  .top-bar nav a {
+    font-size: 12px; /* تصغير النصوص للروابط */
+  }
+}
+/* تعديل تأثير التوهج لكلمة "ركن الشوكلا" */
+.top-bar .logo {
+  font-size: 20px; /* حجم النص */
+  font-weight: bold;
+  color: #FFD1DC; /* لون أساسي */
+  text-shadow: 0 0 5px #FFD1DC, 0 0 10px #FF80AB, 0 0 15px #F06292; /* تأثير توهج ثابت */
+  animation: glow 1.5s infinite alternate; /* حركة توهج ديناميكية */
+}
+
+/* حركة التوهج */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #FFD1DC, 0 0 10px #FF80AB, 0 0 15px #F06292;
+  }
+  100% {
+    text-shadow: 0 0 15px #FFD1DC, 0 0 20px #FF80AB, 0 0 30px #F06292;
   }
 }
 
